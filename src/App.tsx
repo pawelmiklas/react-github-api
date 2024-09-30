@@ -1,8 +1,13 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { UsersList } from "./pages/Users";
+
+const queryClient = new QueryClient();
+
 const App = () => {
   return (
-    <>
-      <h1>Vite + React</h1>
-    </>
+    <QueryClientProvider client={queryClient}>
+      <UsersList />
+    </QueryClientProvider>
   );
 };
 
