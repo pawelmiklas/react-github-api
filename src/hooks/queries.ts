@@ -1,15 +1,28 @@
-import { queryOptions, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import { fetchUsers } from "../api";
 
 export const userQueries = {
   all: () => ["users"] as const,
-  list: (query?: string) =>
-    queryOptions({
-      queryKey: [...userQueries.all(), "list", query],
-      queryFn: () => fetchUsers(query),
-    }),
 };
 
-export const useUserQuery = (query?: string) => {
-  return useQuery(userQueries.list(query));
+export const useUserQuery = (searchTerm: string) => {
+  const { data, isLoading, fetchNextPage, hasNextPage } = useInfiniteQuery({
+    queryKey: [userQueries.all(), "list", searchTerm],
+    queryFn: ({ pageParam = 1 }) => fetchUsers(searchTerm, pageParam),
+    initialPageParam: 1,
+    getNextPageParam: (lastPage, pages) => {
+      if (lastPage.items.length === 0) {
+        return undefined;
+      }
+
+      return pages.length + 1;
+    },
+  });
+
+  return {
+    data: data?.pages.flatMap(({ items }) => items) ?? [],
+    isLoading,
+    fetchNextPage,
+    hasNextPage: !!hasNextPage,
+  };
 };

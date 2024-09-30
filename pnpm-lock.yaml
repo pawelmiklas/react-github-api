@@ -41,9 +41,9 @@ importers:
       react-hook-form:
         specifier: ^7.53.0
         version: 7.53.0(react@18.3.1)
-      vite-tsconfig-paths:
-        specifier: ^5.0.1
-        version: 5.0.1(typescript@5.6.2)(vite@5.4.8(@types/node@22.7.4))
+      react-infinite-scroller:
+        specifier: ^1.2.6
+        version: 1.2.6(react@18.3.1)
       yup:
         specifier: ^1.4.0
         version: 1.4.0
@@ -60,6 +60,9 @@ importers:
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.0
+      '@types/react-infinite-scroller':
+        specifier: ^1.2.5
+        version: 1.2.5
       '@vitejs/plugin-react':
         specifier: ^4.3.1
         version: 4.3.2(vite@5.4.8(@types/node@22.7.4))
@@ -672,6 +675,9 @@ packages:
   '@types/react-dom@18.3.0':
     resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
 
+  '@types/react-infinite-scroller@1.2.5':
+    resolution: {integrity: sha512-fJU1jhMgoL6NJFrqTM0Ob7tnd2sQWGxe2ESwiU6FZWbJK/VO/Er5+AOhc+e2zbT0dk5pLygqctsulOLJ8xnSzw==}
+
   '@types/react-transition-group@4.4.11':
     resolution: {integrity: sha512-RM05tAniPZ5DZPzzNFP+DmrcOdD0efDUxMy3145oljWSl3x9ZV5vhme98gTxFrj2lhXvmGNnUiuDyJgY9IKkNA==}
 
@@ -1031,9 +1037,6 @@ packages:
     resolution: {integrity: sha512-SmSKyLLKFbSr6rptvP8izbyxJL4ILwqO9Jg23UA0sDlGlu58V59D1//I3vlc0KJphVdUR7vMjHIplYnzBxorQA==}
     engines: {node: '>=18'}
 
-  globrex@0.1.2:
-    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
-
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
@@ -1261,6 +1264,11 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
 
+  react-infinite-scroller@1.2.6:
+    resolution: {integrity: sha512-mGdMyOD00YArJ1S1F3TVU9y4fGSfVVl6p5gh/Vt4u99CJOptfVu/q5V/Wlle72TMgYlBwIhbxK5wF0C/R33PXQ==}
+    peerDependencies:
+      react: ^0.14.9 || ^15.3.0 || ^16.0.0 || ^17.0.0 || ^18.0.0
+
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -1378,16 +1386,6 @@ packages:
     peerDependencies:
       typescript: '>=4.2.0'
 
-  tsconfck@3.1.3:
-    resolution: {integrity: sha512-ulNZP1SVpRDesxeMLON/LtWM8HIgAJEIVpVVhBM6gsmvQ8+Rh+ZG7FWGvHh7Ah3pRABwVJWklWCr/BTZSv0xnQ==}
-    engines: {node: ^18 || >=20}
-    hasBin: true
-    peerDependencies:
-      typescript: ^5.0.0
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
   type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
     engines: {node: '>= 0.8.0'}
@@ -1421,14 +1419,6 @@ packages:
 
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
-
-  vite-tsconfig-paths@5.0.1:
-    resolution: {integrity: sha512-yqwv+LstU7NwPeNqajZzLEBVpUFU6Dugtb2P84FXuvaoYA+/70l9MHE+GYfYAycVyPSDYZ7mjOFuYBRqlEpTig==}
-    peerDependencies:
-      vite: '*'
-    peerDependenciesMeta:
-      vite:
-        optional: true
 
   vite@5.4.8:
     resolution: {integrity: sha512-FqrItQ4DT1NC4zCUqMB4c4AZORMKIa0m8/URVCZ77OZ/QSNeJ54bU1vrFADbDsuwfIPcgknRkmqakQcgnL4GiQ==}
@@ -2037,6 +2027,10 @@ snapshots:
     dependencies:
       '@types/react': 18.3.10
 
+  '@types/react-infinite-scroller@1.2.5':
+    dependencies:
+      '@types/react': 18.3.10
+
   '@types/react-transition-group@4.4.11':
     dependencies:
       '@types/react': 18.3.10
@@ -2453,8 +2447,6 @@ snapshots:
 
   globals@15.9.0: {}
 
-  globrex@0.1.2: {}
-
   graphemer@1.4.0: {}
 
   has-flag@3.0.0: {}
@@ -2642,6 +2634,11 @@ snapshots:
     dependencies:
       react: 18.3.1
 
+  react-infinite-scroller@1.2.6(react@18.3.1):
+    dependencies:
+      prop-types: 15.8.1
+      react: 18.3.1
+
   react-is@16.13.1: {}
 
   react-is@18.3.1: {}
@@ -2751,10 +2748,6 @@ snapshots:
     dependencies:
       typescript: 5.6.2
 
-  tsconfck@3.1.3(typescript@5.6.2):
-    optionalDependencies:
-      typescript: 5.6.2
-
   type-check@0.4.0:
     dependencies:
       prelude-ls: 1.2.1
@@ -2785,17 +2778,6 @@ snapshots:
   uri-js@4.4.1:
     dependencies:
       punycode: 2.3.1
-
-  vite-tsconfig-paths@5.0.1(typescript@5.6.2)(vite@5.4.8(@types/node@22.7.4)):
-    dependencies:
-      debug: 4.3.7
-      globrex: 0.1.2
-      tsconfck: 3.1.3(typescript@5.6.2)
-    optionalDependencies:
-      vite: 5.4.8(@types/node@22.7.4)
-    transitivePeerDependencies:
-      - supports-color
-      - typescript
 
   vite@5.4.8(@types/node@22.7.4):
     dependencies:

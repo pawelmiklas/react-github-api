@@ -1,9 +1,9 @@
 import { userPaginationSchema } from "../types";
 import { axiosInstance } from "./common";
 
-export const fetchUsers = async (query?: string) => {
+export const fetchUsers = async (query?: string, page?: number) => {
   const response = await axiosInstance.get("/search/users", {
-    params: { q: query },
+    params: { q: query, page },
   });
 
   try {
