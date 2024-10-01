@@ -11,6 +11,7 @@ export const BaseEmptyState = ({
   message = "We couldn't find any data to display at the moment.",
 }: BaseEmptyStateProps) => (
   <Box
+    data-testid="base-empty-state-box"
     display="flex"
     flexDirection="column"
     alignItems="center"
@@ -19,13 +20,18 @@ export const BaseEmptyState = ({
     py={3}
   >
     <SvgIcon
+      data-testid="base-empty-state-icon"
       component={SearchOffIcon}
       sx={{ fontSize: 64, color: "text.secondary", mb: 2 }}
     />
-    <Typography variant="h5" gutterBottom>
+    <Typography data-testid="base-empty-state-title" variant="h5" gutterBottom>
       {title}
     </Typography>
-    <Typography variant="body1" color="text.secondary">
+    <Typography
+      data-testid="base-empty-state-message"
+      variant="body1"
+      color="text.secondary"
+    >
       {message}
     </Typography>
   </Box>

@@ -31,34 +31,42 @@ export const BaseTable = <T extends { id: string | number }>({
   const hasData = rows.length > 0;
 
   return (
-    <TableContainer component={Paper}>
-      <Table>
+    <TableContainer component={Paper} data-testid="base-table-container">
+      <Table data-testid="base-table">
         {(hasData || isLoading) && (
-          <TableHead>
+          <TableHead data-testid="base-table-head">
             <TableRow>
               {columns.map(({ key, header }) => (
-                <TableCell key={key.toString()}>{header}</TableCell>
+                <TableCell
+                  key={key.toString()}
+                  data-testid={`header-cell-${key.toString()}`}
+                >
+                  {header}
+                </TableCell>
               ))}
             </TableRow>
           </TableHead>
         )}
-        <TableBody>
+        <TableBody data-testid="base-table-body">
           {isLoading ? (
-            <BaseTableSkeleton />
+            <BaseTableSkeleton data-testid="base-table-skeleton" />
           ) : hasData ? (
             rows.map((row) => (
-              <TableRow key={row.id}>
+              <TableRow key={row.id} data-testid={`row-${row.id}`}>
                 {columns.map(({ key, render }) => (
-                  <TableCell key={`${row.id}-${key.toString()}`}>
+                  <TableCell
+                    key={`${row.id}-${key.toString()}`}
+                    data-testid={`cell-${row.id}-${key.toString()}`}
+                  >
                     {render(row)}
                   </TableCell>
                 ))}
               </TableRow>
             ))
           ) : (
-            <TableRow>
+            <TableRow data-testid="empty-state-row">
               <TableCell>
-                <BaseEmptyState />
+                <BaseEmptyState data-testid="base-empty-state" />
               </TableCell>
             </TableRow>
           )}
